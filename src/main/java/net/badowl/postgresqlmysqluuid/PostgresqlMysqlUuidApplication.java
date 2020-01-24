@@ -19,23 +19,21 @@ public class PostgresqlMysqlUuidApplication {
 
     @Bean
     DataSource postgreSqlDs() {
-        String pg_url = System.getProperty("PG_URL");
         return DataSourceBuilder
                 .create()
                 .username("test")
                 .password("test")
-                .url(pg_url)
+                .url(System.getProperty("PG_URL"))
                 .build();
     }
 
     @Bean
     DataSource mySqlDs() {
-        String mysql_url = System.getProperty("MYSQL_URL");
         return DataSourceBuilder
                 .create()
                 .username("test")
                 .password("test")
-                .url(mysql_url)
+                .url(System.getProperty("MYSQL_URL"))
                 .build();
     }
 
