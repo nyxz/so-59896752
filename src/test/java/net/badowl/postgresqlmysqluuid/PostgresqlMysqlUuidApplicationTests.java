@@ -51,10 +51,10 @@ class PostgresqlMysqlUuidApplicationTests {
         test(jdbcTemplateMySql);
     }
 
-    private void test(final NamedParameterJdbcTemplate jdbcTemplatePostgreSql) {
+    private void test(final NamedParameterJdbcTemplate jdbcTemplate) {
         final KeyHolder keyHolder = new GeneratedKeyHolder();
         final SqlParameterSource params = new MapSqlParameterSource("title", "Harry Poter");
-        jdbcTemplatePostgreSql.update("INSERT INTO book (title) VALUES (:title)", params, keyHolder);
+        jdbcTemplate.update("INSERT INTO book (title) VALUES (:title)", params, keyHolder);
         assertFalse(keyHolder.getKeyList().isEmpty());
     }
 
